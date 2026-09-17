@@ -1,0 +1,17 @@
+---
+import { content } from '../config/content.js';
+const { differentials } = content;
+---
+
+<section class="differentials">
+  <div class="container">
+    <div class="tags-grid fade-up">
+      {differentials.items.map((item) => (
+        <div class="card diff-card">
+          <i data-lucide={item.icon} aria-hidden="true"></i>
+          {item.label}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

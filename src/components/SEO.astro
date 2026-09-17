@@ -1,0 +1,64 @@
+---
+// SEO global — toda página herda este componente com suas configurações padrão.
+// Sobrescreva as props individualmente em cada página.
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Neeko | Sites, Landing Pages, Sistemas e Automações para Empresas",
+  description = "A Neeko desenvolve sites profissionais, landing pages, sistemas personalizados, automações inteligentes e soluções digitais para empresas de todos os segmentos, com especialização no mercado contábil.",
+  canonical = Astro.url.href,
+  ogImage = "/assets/images/og-image.png",
+} = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Segurança: bloqueia iframes de outros domínios e controla referrer -->
+<meta http-equiv="X-Frame-Options" content="DENY" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<!-- Content Security Policy — ajuste 'connect-src' se adicionar APIs externas -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';" />
+
+<!-- SEO primário -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content="landing page, site profissional, criação de sites, automação, automação empresarial, sistemas personalizados, desenvolvimento web, software sob medida, site para contabilidade, site para escritório contábil, landing page para eventos, landing page para workshop, integração de sistemas, API, dashboard, automação fiscal, contabilidade digital, SEO, hospedagem" />
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph (redes sociais) -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Neeko" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Schema.org (Google Rich Results) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Neeko",
+  "url": "https://neeko.com.br",
+  "description": "Agência de tecnologia especializada em sites, landing pages, sistemas e automações para empresas.",
+  "sameAs": [
+    "https://instagram.com/neeko.digital"
+  ]
+}
+</script>

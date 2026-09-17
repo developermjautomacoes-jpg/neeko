@@ -1,0 +1,153 @@
+---
+import SEO from '../components/SEO.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Specialty from '../components/Specialty.astro';
+import Differentials from '../components/Differentials.astro';
+import Portfolio from '../components/Portfolio.astro';
+import Process from '../components/Process.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Cta from '../components/Cta.astro';
+import LatestSites from '../components/LatestSites.astro';
+import Footer from '../components/Footer.astro';
+import { content } from '../config/content.js';
+
+// CORREÇÃO: importar CSS via Astro em vez de <link> para public/
+// Assim editar src/styles/design-system.css reflete automaticamente.
+import '../styles/design-system.css';
+
+const { clients } = content;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <SEO />
+</head>
+<body>
+
+  <Navbar />
+
+  <main>
+    <Hero />
+
+    <Services />
+    <Specialty />
+    <Differentials />
+    <Portfolio />
+    <Process />
+    <Testimonials />
+    <Cta />
+
+    <!-- Esteira de últimos sites -->
+    <LatestSites />
+
+    <!-- Clientes (logos) — no final da página -->
+    <section class="clients" id="clientes">
+      <div class="container fade-up">
+        <p class="clients-intro">{clients.intro}</p>
+        <div class="clients-logos">
+          {clients.logos.map((logo) => (
+            logo.src
+              ? <div class="client-logo"><img src={logo.src} alt={logo.alt} loading="lazy" /></div>
+              : <div class="client-logo client-logo-empty"><span class="cl-plus" aria-hidden="true">+</span><span>Sua logo aqui</span></div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <!-- Lightbox global (abre a página completa do modelo, com rolagem) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visualização ampliada do modelo">
+    <div class="lightbox-bar">
+      <span class="lightbox-title" id="lightboxTitle"></span>
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Fechar">✕</button>
+    </div>
+    <div class="lightbox-scroll" id="lightboxScroll">
+      <img id="lightboxImg" src="" alt="" />
+    </div>
+  </div>
+
+  <script>
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg') as HTMLImageElement | null;
+    const lbTitle = document.getElementById('lightboxTitle');
+    const lbScroll = document.getElementById('lightboxScroll');
+    const lbClose = document.getElementById('lightboxClose');
+
+    (window as any).openLightbox = (src: string, title: string) => {
+      if (!lb || !lbImg) return;
+      lbImg.src = src;
+      lbImg.alt = title;
+      if (lbTitle) lbTitle.textContent = title;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (lbScroll) lbScroll.scrollTop = 0;
+    };
+
+    const closeLightbox = () => {
+      if (!lb) return;
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    lbClose?.addEventListener('click', closeLightbox);
+    lb?.addEventListener('click', (e) => { if (e.target === lb || e.target === lbScroll) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+
+  <!--
+    CORREÇÃO: Lucide agora é importado via npm (sem CDN externo).
+    window.__initIcons() fica exposto para componentes re-renderizarem ícones
+    após mudanças de tema (ex: Navbar).
+  -->
+  <script>
+    import {
+      createIcons,
+      Layout, MonitorSmartphone, Code2, Zap, Server, Lightbulb,
+      Rocket, Gauge, Search, ShieldCheck, LifeBuoy, Cpu, Smartphone,
+      Puzzle, Sun, Moon, Menu, Mail, MessageCircle, AtSign, ArrowRight,
+      // Ícones do carrossel do hero
+      Building2, MousePointerClick, Ticket, Tag, Stethoscope,
+      Utensils, Building, Scissors, Palette, LayoutDashboard,
+    } from 'lucide';
+
+    const appIcons = {
+      Layout, MonitorSmartphone, Code2, Zap, Server, Lightbulb,
+      Rocket, Gauge, Search, ShieldCheck, LifeBuoy, Cpu, Smartphone,
+      Puzzle, Sun, Moon, Menu, Mail, MessageCircle, AtSign, ArrowRight,
+      Building2, MousePointerClick, Ticket, Tag, Stethoscope,
+      Utensils, Building, Scissors, Palette, LayoutDashboard,
+    };
+
+    // Expõe globalmente para Navbar e outros componentes re-inicializarem após mudanças de DOM
+    (window as any).__initIcons = () => createIcons({ icons: appIcons });
+    (window as any).__initIcons();
+
+    // Animações de scroll (fade-up)
+    const fadeEls = document.querySelectorAll('.fade-up');
+    if (!('IntersectionObserver' in window)) {
+      fadeEls.forEach(el => el.classList.add('visible'));
+    } else {
+      const obs = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -60px 0px', threshold: 0.05 },
+      );
+      fadeEls.forEach(el => obs.observe(el));
+    }
+  </script>
+
+</body>
+</html>

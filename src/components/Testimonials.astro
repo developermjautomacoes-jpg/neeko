@@ -1,0 +1,24 @@
+---
+import { content } from '../config/content.js';
+const { testimonials } = content;
+---
+
+<section id="depoimentos" class="testimonials">
+  <div class="container">
+    <h2 class="section-title fade-up">{testimonials.sectionTitle}</h2>
+    <div class="grid testimonials-grid">
+      {testimonials.items.map((item, i) => (
+        <div class={`card testimonial-card fade-up delay-${i + 1}`}>
+          <p>{item.text}</p>
+          <div class="testimonial-author">
+            <div class={`author-avatar ${item.avatarClass}`} aria-hidden="true"></div>
+            <div>
+              <h4>{item.name}</h4>
+              <span>{item.company}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

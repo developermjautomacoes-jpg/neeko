@@ -1,0 +1,112 @@
+---
+import { content } from '../config/content.js';
+const { hero } = content;
+---
+
+<section class="hero">
+  <div class="container hero-container">
+
+    <div class="hero-content fade-up">
+      <h1>
+        {hero.title} <span class="text-gradient">{hero.titleHighlight}</span> {hero.titleEnd}
+      </h1>
+      <p>{hero.subtitle}</p>
+      <div class="hero-buttons">
+        <a href={hero.cta1.href} class="btn btn-primary">{hero.cta1.label}</a>
+        <a href={hero.cta2.href} class="btn btn-secondary">{hero.cta2.label}</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up delay-1">
+      <div class="mockup-glass">
+        <div class="mockup-header">
+          <span class="dot red" aria-hidden="true"></span>
+          <span class="dot yellow" aria-hidden="true"></span>
+          <span class="dot green" aria-hidden="true"></span>
+          <span class="mockup-url" id="mockupUrl">{hero.slides[0].url}</span>
+        </div>
+
+        <div class="mockup-body">
+          <div class="hero-carousel" aria-label="Modelos de site criados pela Neeko">
+            {hero.slides.map((slide, i) => (
+              <button
+                class={`hero-slide ${i === 0 ? 'active' : ''}`}
+                data-slide={i}
+                data-lightbox={slide.img}
+                data-title={slide.name}
+                type="button"
+                style={`--slide-bg: url('${slide.img}')`}
+                aria-label={`Ampliar modelo: ${slide.name}`}
+              >
+                <img src={slide.img} alt={`Modelo Neeko — ${slide.name}`} loading={i === 0 ? 'eager' : 'lazy'} />
+                <span class="slide-zoom" aria-hidden="true">⤢</span>
+              </button>
+            ))}
+
+            <div class="hero-dots" role="tablist" aria-label="Selecionar modelo">
+              {hero.slides.map((slide, i) => (
+                <button
+                  class={`hero-dot ${i === 0 ? 'active' : ''}`}
+                  type="button"
+                  data-dot={i}
+                  aria-label={slide.name}
+                ></button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="hero-visual-hint">Clique em um modelo para ver a página completa ↗</p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { content } from '../config/content.js';
+  const slidesData = content.hero.slides;
+
+  const carousel = document.querySelector('.hero-carousel');
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll<HTMLElement>('.hero-slide'));
+    const dots   = Array.from(carousel.querySelectorAll<HTMLElement>('.hero-dot'));
+    const urlEl  = document.getElementById('mockupUrl');
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const INTERVAL = 3200;
+
+    let idx = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const show = (n: number) => {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      if (urlEl && slidesData[idx]) urlEl.textContent = slidesData[idx].url;
+    };
+
+    const stop = () => { if (timer) { clearInterval(timer); timer = undefined; } };
+    const start = () => {
+      if (prefersReduced) return;
+      stop();
+      timer = setInterval(() => show(idx + 1), INTERVAL);
+    };
+
+    dots.forEach((d, i) => d.addEventListener('click', () => { show(i); start(); }));
+
+    // Abrir lightbox ao clicar no slide (usa o lightbox global do index)
+    slides.forEach((s) => {
+      s.addEventListener('click', () => {
+        const src = s.getAttribute('data-lightbox');
+        const title = s.getAttribute('data-title') || '';
+        if (src && (window as any).openLightbox) (window as any).openLightbox(src, title);
+      });
+    });
+
+    const glass = carousel.closest('.mockup-glass');
+    glass?.addEventListener('mouseenter', stop);
+    glass?.addEventListener('mouseleave', start);
+
+    show(0);
+    start();
+  }
+</script>

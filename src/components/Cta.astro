@@ -1,0 +1,13 @@
+---
+import { content } from '../config/content.js';
+const { cta } = content;
+---
+
+<section id="orcamento" class="cta-section">
+  <div class="container">
+    <div class="cta-content fade-up">
+      <h2>{cta.title}</h2>
+      <a href={cta.button.href} class="btn cta-btn">{cta.button.label}</a>
+    </div>
+  </div>
+</section>

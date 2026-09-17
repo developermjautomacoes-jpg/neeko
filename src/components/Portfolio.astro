@@ -1,0 +1,53 @@
+---
+import { content } from '../config/content.js';
+const { portfolio } = content;
+---
+
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    <h2 class="section-title fade-up">{portfolio.sectionTitle}</h2>
+    <div class="grid portfolio-grid portfolio-grid-3">
+      {portfolio.items.map((item) => (
+        item.soon ? (
+          <article class="card project-card project-soon fade-up" aria-label="Projeto em breve">
+            <div class="project-img project-img-soon">
+              <span class="soon-badge">Em breve</span>
+              <span class="soon-plus" aria-hidden="true">+</span>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">{item.category}</span>
+              <h3>{item.title}</h3>
+            </div>
+          </article>
+        ) : (
+          <button
+            class="card project-card fade-up"
+            type="button"
+            data-lightbox={item.img}
+            data-title={`${item.category} — ${item.title}`}
+            aria-label={`Ampliar projeto: ${item.title}`}
+          >
+            <div class="project-img">
+              <img src={item.img} alt={`Projeto — ${item.title}`} width="1400" height="1050" loading="lazy" />
+              <span class="project-zoom" aria-hidden="true">⤢</span>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">{item.category}</span>
+              <h3>{item.title}</h3>
+            </div>
+          </button>
+        )
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.project-card[data-lightbox]').forEach((card) => {
+    card.addEventListener('click', () => {
+      const src = card.getAttribute('data-lightbox');
+      const title = card.getAttribute('data-title') || '';
+      if (src && (window as any).openLightbox) (window as any).openLightbox(src, title);
+    });
+  });
+</script>

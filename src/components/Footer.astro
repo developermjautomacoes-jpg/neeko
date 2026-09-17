@@ -1,0 +1,60 @@
+---
+import { content } from '../config/content.js';
+const { brand, footer } = content;
+---
+
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <div class="footer-brand">
+      <img src={brand.logoMain} alt="Neeko" class="footer-logo-img" id="footerLogoImg" width="149" height="48" loading="lazy" />
+      <p>{footer.slogan}</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Menu</h4>
+      {footer.menu.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </div>
+
+    <div class="footer-contact" id="contato">
+      <h4>Contato</h4>
+      <a href={`mailto:${brand.email}`}>
+        <i data-lucide="mail" aria-hidden="true"></i>
+        {brand.email}
+      </a>
+      <a href={brand.whatsapp} target="_blank" rel="noopener noreferrer">
+        <i data-lucide="message-circle" aria-hidden="true"></i>
+        WhatsApp
+      </a>
+      <a href={brand.instagram} target="_blank" rel="noopener noreferrer">
+        <i data-lucide="at-sign" aria-hidden="true"></i>
+        @neeko.digital
+      </a>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    <p>{footer.copyright}</p>
+  </div>
+</footer>
+
+<script>
+  // Sync footer logo with current theme
+  const updateFooterLogo = () => {
+    const footerLogo = document.getElementById('footerLogoImg') as HTMLImageElement | null;
+    if (!footerLogo) return;
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    footerLogo.src = isLight
+      ? '/assets/logos/logo neeko fundo branco.png'
+      : '/assets/logos/logo_neeko.png';
+  };
+
+  updateFooterLogo();
+
+  // Observe theme changes
+  const observer = new MutationObserver(updateFooterLogo);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+</script>

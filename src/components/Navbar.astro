@@ -1,0 +1,80 @@
+---
+import { content } from '../config/content.js';
+const { brand, nav } = content;
+---
+
+<header class="navbar">
+  <div class="container nav-container">
+    <a href="/" class="logo" aria-label="Neeko - Início">
+      <img
+        src={brand.logoMain}
+        alt="Neeko"
+        class="logo-img"
+        id="navLogoImg"
+        width="199"
+        height="64"
+        loading="eager"
+      />
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Menu principal">
+      {nav.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggleBtn" aria-label="Alternar tema">
+        <i data-lucide="sun" aria-hidden="true"></i>
+      </button>
+      <a href="#contato" class="btn btn-secondary">Contato</a>
+      <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggleBtn" aria-label="Abrir menu">
+      <i data-lucide="menu" aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
+
+<script>
+  import { content } from '../config/content.js';
+
+  const { brand } = content;
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const menuToggleBtn  = document.getElementById('menuToggleBtn');
+  const navLinks       = document.getElementById('navLinks');
+  const navLogoImg     = document.getElementById('navLogoImg') as HTMLImageElement | null;
+
+  // --- Theme ---
+  const savedTheme = localStorage.getItem('neeko-theme') || 'dark';
+
+  const applyTheme = (theme: string) => {
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (themeToggleBtn) themeToggleBtn.innerHTML = '<i data-lucide="moon"></i>';
+      if (navLogoImg) navLogoImg.src = brand.logoLight;
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (themeToggleBtn) themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
+      if (navLogoImg) navLogoImg.src = brand.logoMain;
+    }
+    // Re-render ícones após troca de innerHTML (usa window.__initIcons do index.astro)
+    if (typeof (window as any).__initIcons === 'function') {
+      (window as any).__initIcons();
+    }
+  };
+
+  applyTheme(savedTheme);
+
+  themeToggleBtn?.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    localStorage.setItem('neeko-theme', current);
+    applyTheme(current);
+  });
+
+  // --- Mobile Menu ---
+  menuToggleBtn?.addEventListener('click', () => {
+    navLinks?.classList.toggle('active');
+  });
+</script>

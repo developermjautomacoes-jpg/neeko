@@ -1,0 +1,42 @@
+---
+import { content } from '../config/content.js';
+const { latest } = content;
+// Duplicamos a lista para o loop contínuo (esteira sem emenda visível).
+const loop = [...latest.items, ...latest.items];
+---
+
+<section class="latest" id="ultimos">
+  <div class="container">
+    <h2 class="section-title fade-up">{latest.title}</h2>
+    {latest.subtitle && <p class="latest-sub fade-up">{latest.subtitle}</p>}
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      {loop.map((it) => (
+        <button
+          class="marquee-card"
+          type="button"
+          data-lightbox={it.img}
+          data-title={it.name}
+          aria-label={`Ampliar: ${it.name}`}
+        >
+          <span class="marquee-thumb">
+            <img src={it.img} alt={`Site — ${it.name}`} loading="lazy" />
+          </span>
+          <span class="marquee-cap">{it.name}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.marquee-card[data-lightbox]').forEach((c) => {
+    c.addEventListener('click', () => {
+      const src = c.getAttribute('data-lightbox');
+      const title = c.getAttribute('data-title') || '';
+      if (src && (window as any).openLightbox) (window as any).openLightbox(src, title);
+    });
+  });
+</script>

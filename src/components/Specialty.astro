@@ -1,0 +1,23 @@
+---
+import { content } from '../config/content.js';
+const { specialty } = content;
+---
+
+<section id="sobre" class="specialty">
+  <div class="container specialty-container">
+    <div class="specialty-content fade-up">
+      <h2>
+        {specialty.title}
+        <span class="text-gradient">{specialty.titleHighlight}</span>
+      </h2>
+      <p>{specialty.text1}</p>
+
+      <h3 class="margin-top">{specialty.segmentsTitle}</h3>
+      <div class="tags-list">
+        {specialty.segments.map((seg) => (
+          <span class="tag">{seg}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
