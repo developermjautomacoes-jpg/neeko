@@ -10,17 +10,16 @@ const { services } = content;
     <div class="grid services-grid">
       {services.items.map((service, i) => (
         <div class={`card service-card fade-up delay-${(i % 3) + 1}`}>
-          <i data-lucide={service.icon} class="service-icon" aria-hidden="true"></i>
-          <h3>{service.title}</h3>
-          <p class="service-description">{service.description}</p>
-          <ul class="service-bullets">
-            {service.bullets.map((bullet) => (
-              <li>{bullet}</li>
-            ))}
-          </ul>
-          <a href="#contato" class="service-link">
-            Fale com a Neeko <i data-lucide="arrow-right" aria-hidden="true"></i>
-          </a>
+          <div class="service-content">
+            <i data-lucide={service.icon} class="service-icon" aria-hidden="true"></i>
+            <h3>{service.title}</h3>
+            <p class="service-description">{service.description}</p>
+            <ul class="service-bullets">
+              {service.bullets.map((bullet) => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       ))}
     </div>

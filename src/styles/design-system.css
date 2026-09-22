@@ -570,7 +570,7 @@ section { padding: var(--space-section) 0; }
 /* ==========================================================================
    SERVICES
    ========================================================================== */
-.services-grid { grid-template-columns: repeat(2, 1fr); }
+.services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .services-intro {
   max-width: 860px;
@@ -581,39 +581,66 @@ section { padding: var(--space-section) 0; }
   line-height: 1.7;
 }
 
-.service-card { display: flex; flex-direction: column; }
-.service-card p { flex-grow: 0; }
+.service-card {
+  min-height: 200px;
+  padding: 22px 20px;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.service-content {
+  width: 100%;
+  transition: transform var(--trans-fast), opacity var(--trans-fast);
+}
+
+.service-icon { color: var(--color-primary); width: 36px; height: 36px; margin-bottom: 14px; }
+
+.service-card h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.service-description,
+.service-bullets {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--trans-fast), max-height var(--trans-fast), transform var(--trans-fast);
+}
 
 .service-description {
-  margin-bottom: 18px;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 
 .service-bullets {
-  margin: 0 0 20px 0;
-  padding-left: 18px;
-  color: var(--text-secondary);
   list-style: disc;
+  padding-left: 18px;
+  margin: 10px 0 0;
+  color: var(--text-secondary);
   display: grid;
-  gap: 8px;
-  line-height: 1.6;
+  gap: 6px;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
-.service-icon { color: var(--color-primary); width: 40px; height: 40px; margin-bottom: 24px; }
+.service-card:hover .service-description,
+.service-card:hover .service-bullets {
+  opacity: 1;
+  max-height: 300px;
+  transform: translateY(0);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+}
 
 .service-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--color-primary);
-  font-weight: 600;
-  font-size: 14px;
-  margin-top: auto;
-  transition: gap var(--trans-fast);
+  display: none;
 }
-.service-link:hover { gap: 12px; }
-.service-link i { width: 16px; height: 16px; }
 
 /* ==========================================================================
    SPECIALTY
@@ -797,7 +824,7 @@ section { padding: var(--space-section) 0; }
   border-top: 1px solid var(--lines);
 }
 
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.2fr; gap: 40px; margin-bottom: 60px; }
 .footer-logo-img { height: 48px; width: auto; object-fit: contain; margin-bottom: 16px; display: block; }
 .footer h4 { margin-bottom: 24px; }
 
@@ -807,6 +834,39 @@ section { padding: var(--space-section) 0; }
   margin-bottom: 12px;
 }
 .footer-links a:hover, .footer-contact a:hover { color: var(--color-primary); }
+
+.budget-form {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.budget-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.budget-form input {
+  width: 100%;
+  border: 1px solid var(--lines);
+  border-radius: var(--radius-input);
+  background: rgba(255,255,255,0.02);
+  color: var(--text-main);
+  padding: 12px 14px;
+  font: inherit;
+}
+
+.budget-form input:focus {
+  outline: 2px solid rgba(0, 230, 118, 0.35);
+  border-color: var(--color-primary);
+}
 
 .footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid var(--lines); color: var(--text-secondary); }
 

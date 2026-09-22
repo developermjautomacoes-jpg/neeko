@@ -30,8 +30,30 @@ const { brand, footer } = content;
       </a>
       <a href={brand.instagram} target="_blank" rel="noopener noreferrer">
         <i data-lucide="at-sign" aria-hidden="true"></i>
-        @neeko.digital
+        @neeko.automacoes
       </a>
+
+      <form id="budgetForm" class="budget-form">
+        <div class="form-grid">
+          <label>
+            <span>Nome</span>
+            <input type="text" name="nome" placeholder="Seu nome" required />
+          </label>
+          <label>
+            <span>Telefone</span>
+            <input type="tel" name="telefone" placeholder="(27) 99999-9999" required />
+          </label>
+          <label>
+            <span>E-mail</span>
+            <input type="email" name="email" placeholder="seu@email.com" required />
+          </label>
+          <label>
+            <span>Assunto</span>
+            <input type="text" name="assunto" placeholder="Ex: Automação de rotina" required />
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">Solicitar orçamento</button>
+      </form>
     </div>
 
   </div>
@@ -53,6 +75,25 @@ const { brand, footer } = content;
   };
 
   updateFooterLogo();
+
+  const budgetForm = document.getElementById('budgetForm');
+  budgetForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const form = event.currentTarget as HTMLFormElement;
+    const data = new FormData(form);
+    const nome = (data.get('nome') || '').toString().trim();
+    const telefone = (data.get('telefone') || '').toString().trim();
+    const email = (data.get('email') || '').toString().trim();
+    const assunto = (data.get('assunto') || '').toString().trim();
+
+    const subject = encodeURIComponent(`Solicitação de orçamento — ${assunto || 'Automação'}`);
+    const body = encodeURIComponent(
+      `Nome: ${nome}\nTelefone: ${telefone}\nE-mail: ${email}\nAssunto: ${assunto}\n\nOlá, gostaria de solicitar um orçamento.`
+    );
+
+    window.location.href = `mailto:neeko.automacoes@gmail.com?subject=${subject}&body=${body}`;
+    form.reset();
+  });
 
   // Observe theme changes
   const observer = new MutationObserver(updateFooterLogo);

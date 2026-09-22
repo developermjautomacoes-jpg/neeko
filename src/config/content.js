@@ -9,7 +9,7 @@ export const content = {
     logoLight: "/assets/logos/logo neeko fundo branco.png",
     email: "neeko.automacoes@gmail.com",
     whatsapp: "https://wa.me/5527981184118",
-    instagram: "https://instagram.com/neeko.digital",
+    instagram: "https://www.instagram.com/neeko.automacoes/",
   },
 
   nav: [
@@ -20,11 +20,11 @@ export const content = {
   ],
 
   hero: {
-    title: "Automação que",
-    titleHighlight: "libera tempo",
-    titleEnd: "e acelera resultados",
+    title: "Sua operação, em modo",
+    titleHighlight: "automático",
+    titleEnd: "e com mais velocidade",
     subtitle:
-      "Transformamos processos repetitivos em sistemas inteligentes para sua equipe focar no que realmente importa e sua empresa crescer com mais velocidade.",
+      "Conectamos processos, sistemas, IA e sites para eliminar retrabalho, reduzir erros e dar à sua equipe mais tempo para crescer e vender melhor.",
     cta1: { label: "Falar com especialista", href: "#contato" },
     cta2: { label: "Ver serviços", href: "#servicos" },
     // Slides do carrossel: cada um mostra um modelo "Neeko Modelo" dentro da moldura do navegador.
@@ -118,7 +118,7 @@ export const content = {
     title: "Tecnologia que trabalha enquanto sua equipe pensa",
     titleHighlight: "automação",
     text1:
-      "Quatro frentes, um mesmo objetivo: tirar o repetitivo do seu caminho e colocar tecnologia de verdade a serviço do seu negócio. A Neeko desenvolve soluções para reduzir retrabalho, acelerar processos e dar mais espaço para a sua equipe focar no que gera valor.",
+      "Não é só software: é eficiência real. A Neeko cria soluções que removem o peso das tarefas repetitivas, reduzem falhas humanas e deixam sua operação mais rápida, previsível e escalável.",
     segmentsTitle: "Nossas frentes de atuação:",
     segments: [
       "Automação de rotinas",
@@ -198,13 +198,13 @@ export const content = {
   },
 
   cta: {
-    title: "Vamos automatizar o que está travando seu crescimento?",
+    title: "Seu próximo ganho de eficiência começa aqui.",
     // href aponta para WhatsApp (não mais para a própria seção #orcamento — self-link corrigido)
     button: { label: "Falar pelo WhatsApp", href: "https://wa.me/5527981184118" },
   },
 
   footer: {
-    slogan: "Automação, IA e tecnologia para empresas que querem crescer sem retrabalho.",
+    slogan: "Automação, IA e tecnologia para empresas que querem crescer com menos retrabalho e mais resultado.",
     menu: [
       { label: "Serviços", href: "#servicos" },
       { label: "Projetos", href: "#portfolio" },
