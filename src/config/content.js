@@ -198,13 +198,13 @@ export const content = {
   },
 
   cta: {
-    title: "Seu próximo ganho de eficiência começa aqui.",
+    title: "Seu próximo ganho de eficiência começa agora.",
     // href aponta para WhatsApp (não mais para a própria seção #orcamento — self-link corrigido)
-    button: { label: "Falar pelo WhatsApp", href: "https://wa.me/5527981184118" },
+    button: { label: "Solicitar orçamento agora", href: "https://wa.me/5527981184118" },
   },
 
   footer: {
-    slogan: "Automação, IA e tecnologia para empresas que querem crescer com menos retrabalho e mais resultado.",
+    slogan: "Automação, IA e tecnologia para empresas que querem ganhar tempo, reduzir erros e vender mais.",
     menu: [
       { label: "Serviços", href: "#servicos" },
       { label: "Projetos", href: "#portfolio" },
