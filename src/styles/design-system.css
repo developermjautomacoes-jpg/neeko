@@ -108,7 +108,11 @@ section { padding: var(--space-section) 0; }
 
 .grid { display: grid; gap: var(--space-cards); }
 
-.section-title { text-align: center; margin-bottom: 60px; }
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: -0.04em;
+}
 
 /* ==========================================================================
    UTILITIES
@@ -159,18 +163,18 @@ section { padding: var(--space-section) 0; }
    CARDS
    ========================================================================== */
 .card {
-  background-color: var(--bg-card);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   border-radius: var(--radius-card);
   padding: 32px;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--lines);
-  transition: all var(--trans-fast);
+  transition: transform var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-fast), background var(--trans-fast);
   cursor: pointer;
 }
 
 .card:hover {
-  transform: scale(1.03);
-  border-color: rgba(0, 230, 118, 0.3);
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(0, 230, 118, 0.35);
   box-shadow: var(--shadow-hover);
 }
 
@@ -587,6 +591,12 @@ section { padding: var(--space-section) 0; }
   display: flex;
   align-items: flex-start;
   overflow: hidden;
+  background: linear-gradient(180deg, rgba(18,24,38,0.92), rgba(16,21,33,0.88));
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+[data-theme="light"] .service-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(243,244,246,0.95));
 }
 
 .service-content {
@@ -801,6 +811,20 @@ section { padding: var(--space-section) 0; }
   background: linear-gradient(135deg, #00c05e 0%, #00E676 50%, #00FF88 100%);
   text-align: center;
   padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.22) 0%, transparent 55%);
+}
+
+.cta-section > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .cta-section h2 { color: var(--bg-main); margin-bottom: 40px; font-size: 40px; }
