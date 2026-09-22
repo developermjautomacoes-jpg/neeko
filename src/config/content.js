@@ -7,8 +7,8 @@ export const content = {
     slogan: "Tecnologia inteligente para empresas que querem crescer.",
     logoMain: "/assets/logos/logo_neeko.png",
     logoLight: "/assets/logos/logo neeko fundo branco.png",
-    email: "contato@neeko.com.br",
-    whatsapp: "https://wa.me/5500000000000",
+    email: "neeko.automacoes@gmail.com",
+    whatsapp: "https://wa.me/5527981184118",
     instagram: "https://instagram.com/neeko.digital",
   },
 
@@ -20,13 +20,13 @@ export const content = {
   ],
 
   hero: {
-    title: "Soluções Digitais que",
-    titleHighlight: "Transformam",
-    titleEnd: "Empresas",
+    title: "Automação que",
+    titleHighlight: "libera tempo",
+    titleEnd: "e acelera resultados",
     subtitle:
-      "Sites modernos, Landing Pages de alta conversão, Automações Inteligentes e Sistemas personalizados para impulsionar seu negócio.",
-    cta1: { label: "Solicitar orçamento", href: "#contato" },
-    cta2: { label: "Conhecer serviços", href: "#servicos" },
+      "Transformamos processos repetitivos em sistemas inteligentes para sua equipe focar no que realmente importa e sua empresa crescer com mais velocidade.",
+    cta1: { label: "Falar com especialista", href: "#contato" },
+    cta2: { label: "Ver serviços", href: "#servicos" },
     // Slides do carrossel: cada um mostra um modelo "Neeko Modelo" dentro da moldura do navegador.
     // Clique abre a imagem grande (lightbox).
     slides: [
@@ -43,13 +43,10 @@ export const content = {
 
   clients: {
     intro: "Conheça nossos clientes:",
-    // Campo de LOGOS dos clientes.
-    // Para adicionar: coloque o arquivo em /public/assets/images/clients/
-    // e preencha { src: "/assets/images/clients/nome.png", alt: "Nome do cliente" }.
-    // Slots com src vazio ("") aparecem como espaço reservado "Sua logo aqui".
+    // Espaço reservado para futuras logos. Mantém apenas a CRC Mulher ativa por enquanto.
     logos: [
       { src: "/assets/images/clients/crces-mulher.png", alt: "CRC-ES Mulher" },
-      { src: "/assets/images/clients/facilitar.png", alt: "Facilitar Serviços Contábeis" },
+      { src: "", alt: "" },
       { src: "", alt: "" },
       { src: "", alt: "" },
       { src: "", alt: "" },
@@ -58,61 +55,76 @@ export const content = {
   },
 
   services: {
-    sectionTitle: "Nossos Serviços",
+    sectionTitle: "O que fazemos",
+    intro:
+      "Quatro frentes, um mesmo objetivo: tirar o repetitivo do seu caminho e colocar tecnologia de verdade a serviço do seu negócio.",
     items: [
       {
-        icon: "layout",
-        title: "Sites Institucionais",
-        description:
-          "Projetos modernos, rápidos e totalmente responsivos para fortalecer sua presença digital.",
-      },
-      {
-        icon: "monitor-smartphone",
-        title: "Landing Pages",
-        description:
-          "Páginas de alta conversão para eventos, palestras, workshops, lançamentos e campanhas.",
-      },
-      {
-        icon: "code-2",
-        title: "Sistemas Web",
-        description:
-          "Desenvolvimento de sistemas personalizados para automatizar processos internos.",
-      },
-      {
         icon: "zap",
-        title: "Automações",
+        title: "Automação de Rotinas",
         description:
-          "Integração entre sistemas, planilhas, APIs e processos repetitivos.",
-      },
-      {
-        icon: "server",
-        title: "Hospedagem",
-        description:
-          "Hospedagem rápida, segura e otimizada para máxima performance.",
+          "Libere sua equipe das tarefas repetitivas — deixe a máquina trabalhar.",
+        bullets: [
+          "Automação de relatórios e planilhas",
+          "Envio automático de e-mails e notificações",
+          "Integração entre sistemas e plataformas",
+          "Fluxos de aprovação automatizados",
+          "Robôs RPA para tarefas repetitivas",
+        ],
       },
       {
         icon: "lightbulb",
-        title: "Consultoria Digital",
+        title: "Ferramentas com IA",
         description:
-          "Planejamento tecnológico para aumentar produtividade e reduzir custos.",
+          "Agentes e assistentes inteligentes feitos sob medida para o seu negócio.",
+        bullets: [
+          "Agentes de IA para atendimento ao cliente",
+          "Assistentes internos com base de conhecimento",
+          "Análise automática de documentos e contratos",
+          "IA para classificação e triagem de dados",
+          "Automação com modelos de linguagem (LLMs)",
+        ],
+      },
+      {
+        icon: "code-2",
+        title: "Desenvolvimento de Sites",
+        description:
+          "Site profissional que vende — mesmo quando você está dormindo.",
+        bullets: [
+          "Sites institucionais e portfólios",
+          "Landing pages de alta conversão",
+          "Lojas virtuais (e-commerce)",
+          "Sites com integração de sistemas",
+          "SEO e performance otimizados",
+        ],
+      },
+      {
+        icon: "palette",
+        title: "Identidade Visual",
+        description:
+          "A primeira impressão do seu negócio — feita para ser inesquecível.",
+        bullets: [
+          "Logotipo profissional e variações",
+          "Manual de identidade visual",
+          "Paleta de cores e tipografia",
+          "Templates para redes sociais",
+          "Papelaria e materiais impressos",
+        ],
       },
     ],
   },
 
   specialty: {
-    title: "Especialistas em soluções para ",
-    titleHighlight: "contabilidade",
+    title: "Tecnologia que trabalha enquanto sua equipe pensa",
+    titleHighlight: "automação",
     text1:
-      "A Neeko nasceu da experiência prática dentro do setor contábil. Conhecemos as rotinas fiscais, tributárias e administrativas, permitindo desenvolver ferramentas que realmente resolvem problemas do dia a dia.",
-    segmentsTitle: "Atendemos também diversos segmentos:",
+      "Quatro frentes, um mesmo objetivo: tirar o repetitivo do seu caminho e colocar tecnologia de verdade a serviço do seu negócio. A Neeko desenvolve soluções para reduzir retrabalho, acelerar processos e dar mais espaço para a sua equipe focar no que gera valor.",
+    segmentsTitle: "Nossas frentes de atuação:",
     segments: [
-      "Eventos",
-      "Palestras",
-      "Empresas",
-      "Consultorias",
-      "Comércio",
-      "Prestadores de serviços",
-      "Indústrias",
+      "Automação de rotinas",
+      "Ferramentas com IA",
+      "Desenvolvimento de sites",
+      "Identidade visual",
     ],
   },
 
@@ -171,28 +183,28 @@ export const content = {
     sectionTitle: "O que dizem sobre nós",
     items: [
       {
-        text: '"A automação que a Neeko criou nos poupou horas de trabalho manual todos os dias. O sistema é robusto e lindo!"',
-        name: "Carlos Silva",
-        company: "Contabilidade XYZ",
+        text: '"Depoimento em breve. A Neeko está preparando a experiência real dos nossos clientes para compartilhar aqui."',
+        name: "Cliente em destaque",
+        company: "Em breve",
         avatarClass: "avatar-1",
       },
       {
-        text: '"Nossa Landing Page de evento converteu 3x mais este ano graças ao design focado e performance."',
-        name: "Mariana Costa",
-        company: "Eventos Tech",
+        text: '"Depoimento em breve. Em breve compartilharemos os resultados reais de quem já trabalha com a Neeko."',
+        name: "Cliente em destaque",
+        company: "Em breve",
         avatarClass: "avatar-2",
       },
     ],
   },
 
   cta: {
-    title: "Vamos transformar sua ideia em um projeto digital?",
+    title: "Vamos automatizar o que está travando seu crescimento?",
     // href aponta para WhatsApp (não mais para a própria seção #orcamento — self-link corrigido)
-    button: { label: "Falar pelo WhatsApp", href: "https://wa.me/5500000000000" },
+    button: { label: "Falar pelo WhatsApp", href: "https://wa.me/5527981184118" },
   },
 
   footer: {
-    slogan: "Tecnologia inteligente para empresas que querem crescer.",
+    slogan: "Automação, IA e tecnologia para empresas que querem crescer sem retrabalho.",
     menu: [
       { label: "Serviços", href: "#servicos" },
       { label: "Projetos", href: "#portfolio" },

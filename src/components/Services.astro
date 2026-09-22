@@ -6,14 +6,20 @@ const { services } = content;
 <section id="servicos" class="services">
   <div class="container">
     <h2 class="section-title fade-up">{services.sectionTitle}</h2>
+    <p class="services-intro fade-up">{services.intro}</p>
     <div class="grid services-grid">
       {services.items.map((service, i) => (
         <div class={`card service-card fade-up delay-${(i % 3) + 1}`}>
           <i data-lucide={service.icon} class="service-icon" aria-hidden="true"></i>
           <h3>{service.title}</h3>
-          <p>{service.description}</p>
+          <p class="service-description">{service.description}</p>
+          <ul class="service-bullets">
+            {service.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
           <a href="#contato" class="service-link">
-            Saiba mais <i data-lucide="arrow-right" aria-hidden="true"></i>
+            Fale com a Neeko <i data-lucide="arrow-right" aria-hidden="true"></i>
           </a>
         </div>
       ))}
