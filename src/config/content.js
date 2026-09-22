@@ -60,81 +60,63 @@ export const content = {
       "A Neeko transforma processos manuais em soluções digitais, utilizando automação, integração, dados e inteligência artificial para tornar as rotinas das empresas mais rápidas, organizadas e eficientes.",
     items: [
       {
-        icon: "zap",
-        title: "01. Automações",
-        description:
-          "Processos repetitivos → automação → economia de tempo.",
+        icon: "file-text",
+        title: "01. AUTOMAÇÃO FISCAL",
+        description: "Soluções para otimizar rotinas fiscais",
         bullets: [
-          "Automação de relatórios e planilhas",
-          "Envio automático de e-mails e notificações",
-          "Fluxos de aprovação automatizados",
-          "Robôs RPA para tarefas repetitivas",
-          "Redução de erros e retrabalho",
+          "Importação de XML",
+          "Análise de SPED Fiscal e Contribuições",
+          "Relatórios de análise tributária",
+        ],
+      },
+      {
+        icon: "workflow",
+        title: "02. AUTOMAÇÃO DE PROCESSOS",
+        description: "Menos trabalho manual, mais produtividade",
+        bullets: [
+          "Consultas de CNPJ em lote",
+          "Automação com planilhas",
+          "Processamento e organização de informações",
         ],
       },
       {
         icon: "brain",
-        title: "02. IA para empresas",
-        description:
-          "Leitura, análise, classificação, consulta e geração de informações.",
+        title: "03. INTELIGÊNCIA ARTIFICIAL",
+        description: "IA aplicada às rotinas das empresas",
         bullets: [
-          "Agentes de IA para atendimento",
-          "Assistentes internos com base de conhecimento",
-          "Classificação e triagem de dados",
-          "Análise de documentos e contratos",
-          "Automação com LLMs e IA generativa",
-        ],
-      },
-      {
-        icon: "link-2",
-        title: "03. Integrações",
-        description:
-          "Planilhas + APIs + sistemas + bancos de dados + plataformas.",
-        bullets: [
-          "Conexão entre sistemas e ferramentas",
-          "Integração com APIs e bancos de dados",
-          "Sincronização entre plataformas",
-          "Automação de dados entre áreas",
-          "Conectividade entre fluxos empresariais",
-        ],
-      },
-      {
-        icon: "database",
-        title: "04. Dados e relatórios",
-        description:
-          "Tratamento de dados + cruzamentos + dashboards + indicadores.",
-        bullets: [
-          "Cruzamento e organização de dados",
-          "Dashboards para tomada de decisão",
-          "Indicadores de performance",
-          "Relatórios automatizados",
-          "Visualização inteligente de informações",
+          "Classificação de documentos",
+          "Análise de informações",
+          "Automação de tarefas com IA",
         ],
       },
       {
         icon: "settings-2",
-        title: "05. Sistemas sob medida",
-        description:
-          "Ferramentas e sistemas desenvolvidos especificamente para a rotina da empresa.",
+        title: "04. SISTEMAS SOB MEDIDA",
+        description: "Tecnologia desenvolvida para cada necessidade",
         bullets: [
-          "Sistemas internos customizados",
-          "Painéis e ferramentas operacionais",
-          "Desenvolvimento sob medida",
-          "Automação de processos internos",
-          "Estrutura específica para a operação",
+          "Ferramentas personalizadas",
+          "Sistemas de controle",
+          "Soluções para processos específicos",
+        ],
+      },
+      {
+        icon: "bar-chart-3",
+        title: "05. DADOS & DASHBOARDS",
+        description: "Dados organizados para facilitar decisões",
+        bullets: [
+          "Dashboards",
+          "Relatórios personalizados",
+          "Cruzamento e análise de dados",
         ],
       },
       {
         icon: "globe",
-        title: "06. Presença digital",
-        description:
-          "Sites + landing pages + identidade visual + hospedagem.",
+        title: "06. PRESENÇA DIGITAL",
+        description: "Uma presença digital profissional",
         bullets: [
-          "Sites institucionais e portfólios",
-          "Landing pages de alta conversão",
-          "Identidade visual e branding",
-          "Hospedagem e performance",
-          "Presença digital alinhada ao negócio",
+          "Sites",
+          "Landing pages",
+          "Identidade visual",
         ],
       },
     ],
