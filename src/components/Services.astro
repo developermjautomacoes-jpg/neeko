@@ -1,6 +1,13 @@
 ---
 import { content } from '../config/content.js';
 const { services } = content;
+
+const buildServiceId = (title: string) => title
+  .toLowerCase()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/(^-|-$)/g, '');
 ---
 
 <section id="servicos" class="services">
@@ -8,20 +15,24 @@ const { services } = content;
     {services.sectionTitle && <h2 class="section-title fade-up">{services.sectionTitle}</h2>}
     {services.intro && <p class="services-intro fade-up">{services.intro}</p>}
     <div class="grid services-grid">
-      {services.items.map((service, i) => (
-        <div class={`card service-card fade-up delay-${(i % 3) + 1}`}>
-          <div class="service-content">
-            <i data-lucide={service.icon} class="service-icon" aria-hidden="true"></i>
-            <h3>{service.title}</h3>
-            <p class="service-description">{service.description}</p>
-            <ul class="service-bullets">
-              {service.bullets.map((bullet) => (
-                <li>{bullet}</li>
-              ))}
-            </ul>
+      {services.items.map((service, i) => {
+        const serviceId = buildServiceId(service.title);
+
+        return (
+          <div id={serviceId} class={`card service-card fade-up delay-${(i % 3) + 1}`}>
+            <div class="service-content">
+              <i data-lucide={service.icon} class="service-icon" aria-hidden="true"></i>
+              <h3>{service.title}</h3>
+              <p class="service-description">{service.description}</p>
+              <ul class="service-bullets">
+                {service.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>
