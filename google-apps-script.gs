@@ -1,13 +1,15 @@
+const SPREADSHEET_ID = '1_6WQrEKMcYlpoIoS_qCbESV3wFU9Z26AQhcryAL7ROQ';
+
 function doPost(e) {
   try {
     const payload = JSON.parse(e.postData.contents || '{}');
-    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
     const sheet = spreadsheet.getSheetByName('Respostas') || spreadsheet.getSheets()[0];
 
     const headers = ['Data', 'Nome', 'Telefone', 'E-mail', 'Assunto'];
     const currentHeaders = sheet.getRange(1, 1, 1, headers.length).getValues()[0];
-
     const needsHeader = currentHeaders.every((value) => value !== headers[0]);
+
     if (needsHeader) {
       sheet.appendRow(headers);
     }
@@ -24,6 +26,7 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({ ok: true, message: 'Registro salvo com sucesso.' }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
+    console.error('Erro ao gravar no Google Sheets:', error);
     return ContentService
       .createTextOutput(JSON.stringify({ ok: false, message: error.message }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -31,5 +34,5 @@ function doPost(e) {
 }
 
 function doGet() {
-  return ContentService.createTextOutput('OK');
+  return ContentService.createTextOutput(JSON.stringify({ ok: true, message: 'Service running.' })).setMimeType(ContentService.MimeType.JSON);
 }

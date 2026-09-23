@@ -102,16 +102,27 @@ const { brand, footer } = content;
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        throw new Error('Falha ao enviar para o Google Sheets');
+      const responseText = await response.text();
+      let responseBody: any = {};
+      if (responseText) {
+        try {
+          responseBody = JSON.parse(responseText);
+        } catch {
+          responseBody = { message: responseText };
+        }
+      }
+
+      if (!response.ok || responseBody.ok === false) {
+        throw new Error(responseBody.message || 'Falha ao enviar para o Google Sheets');
       }
 
       alert('Seu orçamento foi enviado com sucesso!');
       form.reset();
       return;
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
-      alert('Não foi possível enviar para a planilha no momento. Verifique a URL do Apps Script.');
+      const message = error instanceof Error ? error.message : 'Erro desconhecido';
+      console.error('Erro ao enviar formulário:', message);
+      alert(`Não foi possível enviar para a planilha: ${message}`);
     }
   });
 
