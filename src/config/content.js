@@ -30,14 +30,12 @@ export const content = {
     // Slides do carrossel: cada um mostra um modelo "Neeko Modelo" dentro da moldura do navegador.
     // Clique abre a imagem grande (lightbox).
     slides: [
-      { name: "Contábil",     img: "/assets/images/modelos/contabil.jpg",    url: "neeko.com.br/modelos/contabil" },
-      { name: "Jurídico",     img: "/assets/images/modelos/juridico.jpg",    url: "neeko.com.br/modelos/juridico" },
-      { name: "Gastronomia",  img: "/assets/images/modelos/gastro.jpg",      url: "neeko.com.br/modelos/gastro" },
-      { name: "Eventos",      img: "/assets/images/modelos/eventos.jpg",     url: "neeko.com.br/modelos/eventos" },
-      { name: "Imobiliária",  img: "/assets/images/modelos/imobiliaria.jpg", url: "neeko.com.br/modelos/imobiliaria" },
-      { name: "Estética",     img: "/assets/images/modelos/estetica.jpg",    url: "neeko.com.br/modelos/estetica" },
-      { name: "Saúde",        img: "/assets/images/modelos/saude.jpg",       url: "neeko.com.br/modelos/saude" },
-      { name: "Automações",   img: "/assets/images/modelos/automacoes.jpg",  url: "neeko.com.br/modelos/automacoes" },
+      { name: "Automação Fiscal", img: "/assets/images/portfolio/01 · Automação Fiscal@2x.png", url: "#servicos" },
+      { name: "Automação de Processos", img: "/assets/images/portfolio/02 · Automação de Processos@2x.png", url: "#servicos" },
+      { name: "Inteligência Artificial", img: "/assets/images/portfolio/03 · Inteligência Artificial Aplicada@2x.png", url: "#servicos" },
+      { name: "Dados e Cruzamento", img: "/assets/images/portfolio/04 · Análise e Cruzamento de Dados@2x.png", url: "#servicos" },
+      { name: "Sistemas sob Medida", img: "/assets/images/portfolio/05 · Sistemas sob Medida@2x.png", url: "#servicos" },
+      { name: "Presença Digital", img: "/assets/images/portfolio/06 · Presença Digital@2x.png", url: "#servicos" },
     ],
   },
 
