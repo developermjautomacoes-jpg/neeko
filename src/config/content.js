@@ -88,12 +88,12 @@ export const content = {
     sectionTitle: "Projetos em Destaque",
     items: [
       {
-        category: "Projetos",
+        category: "Site institucional",
         title: "Facilitar",
         img: "/assets/projetos/facilitar.png",
       },
       {
-        category: "Projetos",
+        category: "Divulgação de evento",
         title: "CRC",
         img: "/assets/projetos/crcset2026.png",
       },
