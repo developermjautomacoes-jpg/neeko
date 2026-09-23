@@ -10,29 +10,31 @@ const buildServiceId = (title: string) => title
   .replace(/(^-|-$)/g, '');
 ---
 
-<section id="servicos" class="services">
-  <div class="container">
-    {services.sectionTitle && <h2 class="section-title fade-up">{services.sectionTitle}</h2>}
-    {services.intro && <p class="services-intro fade-up">{services.intro}</p>}
-    <div class="grid services-grid">
-      {services.items.map((service, i) => {
-        const serviceId = buildServiceId(service.title);
+{services.items.length > 0 && (
+  <section id="servicos" class="services">
+    <div class="container">
+      {services.sectionTitle && <h2 class="section-title fade-up">{services.sectionTitle}</h2>}
+      {services.intro && <p class="services-intro fade-up">{services.intro}</p>}
+      <div class="grid services-grid">
+        {services.items.map((service, i) => {
+          const serviceId = buildServiceId(service.title);
 
-        return (
-          <div id={serviceId} class={`card service-card fade-up delay-${(i % 3) + 1}`}>
-            <div class="service-content">
-              <i data-lucide={service.icon} class="service-icon" aria-hidden="true"></i>
-              <h3>{service.title}</h3>
-              <p class="service-description">{service.description}</p>
-              <ul class="service-bullets">
-                {service.bullets.map((bullet) => (
-                  <li>{bullet}</li>
-                ))}
-              </ul>
+          return (
+            <div id={serviceId} class={`card service-card fade-up delay-${(i % 3) + 1}`}>
+              <div class="service-content">
+                <i data-lucide={service.icon} class="service-icon" aria-hidden="true"></i>
+                <h3>{service.title}</h3>
+                <p class="service-description">{service.description}</p>
+                <ul class="service-bullets">
+                  {service.bullets.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+)}

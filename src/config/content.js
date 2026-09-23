@@ -52,68 +52,7 @@ export const content = {
     sectionTitle: "",
     intro:
       "",
-    items: [
-      {
-        icon: "file-text",
-        title: "01. AUTOMAÇÃO FISCAL",
-        description: "Soluções para otimizar rotinas fiscais",
-        bullets: [
-          "Importação de XML",
-          "Análise de SPED Fiscal e Contribuições",
-          "Relatórios de análise tributária",
-        ],
-      },
-      {
-        icon: "workflow",
-        title: "02. AUTOMAÇÃO DE PROCESSOS",
-        description: "Menos trabalho manual, mais produtividade",
-        bullets: [
-          "Consultas de CNPJ em lote",
-          "Automação com planilhas",
-          "Processamento e organização de informações",
-        ],
-      },
-      {
-        icon: "brain",
-        title: "03. INTELIGÊNCIA ARTIFICIAL",
-        description: "IA aplicada às rotinas das empresas",
-        bullets: [
-          "Classificação de documentos",
-          "Análise de informações",
-          "Automação de tarefas com IA",
-        ],
-      },
-      {
-        icon: "settings-2",
-        title: "04. SISTEMAS SOB MEDIDA",
-        description: "Tecnologia desenvolvida para cada necessidade",
-        bullets: [
-          "Ferramentas personalizadas",
-          "Sistemas de controle",
-          "Soluções para processos específicos",
-        ],
-      },
-      {
-        icon: "bar-chart-3",
-        title: "05. DADOS & DASHBOARDS",
-        description: "Dados organizados para facilitar decisões",
-        bullets: [
-          "Dashboards",
-          "Relatórios personalizados",
-          "Cruzamento e análise de dados",
-        ],
-      },
-      {
-        icon: "globe",
-        title: "06. PRESENÇA DIGITAL",
-        description: "Uma presença digital profissional",
-        bullets: [
-          "Sites",
-          "Landing pages",
-          "Identidade visual",
-        ],
-      },
-    ],
+    items: [],
   },
 
   specialty: {
