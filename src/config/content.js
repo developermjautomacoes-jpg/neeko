@@ -43,12 +43,8 @@ export const content = {
     intro: "Conheça nossos clientes:",
     // Espaço reservado para futuras logos. Mantém apenas a CRC Mulher ativa por enquanto.
     logos: [
+      { src: "/assets/images/clients/facilitar.png", alt: "Facilitar" },
       { src: "/assets/images/clients/crces-mulher.png", alt: "CRC-ES Mulher" },
-      { src: "", alt: "" },
-      { src: "", alt: "" },
-      { src: "", alt: "" },
-      { src: "", alt: "" },
-      { src: "", alt: "" },
     ],
   },
 
