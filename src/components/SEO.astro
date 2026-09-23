@@ -22,8 +22,8 @@ const {
 <!-- Segurança: bloqueia iframes de outros domínios e controla referrer -->
 <meta http-equiv="X-Frame-Options" content="DENY" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
-<!-- Content Security Policy — ajuste 'connect-src' se adicionar APIs externas -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';" />
+<!-- Content Security Policy — permite integrações externas necessárias ao site -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://script.google.com https://script.googleusercontent.com;" />
 
 <!-- SEO primário -->
 <title>{title}</title>
