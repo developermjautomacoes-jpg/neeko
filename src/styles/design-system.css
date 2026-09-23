@@ -693,7 +693,12 @@ section { padding: var(--space-section) 0; }
    PORTFOLIO
    ========================================================================== */
 .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
-.portfolio-grid-3 { grid-template-columns: repeat(3, 1fr); max-width: 1000px; margin: 0 auto; }
+.portfolio-grid-3 {
+  grid-template-columns: repeat(2, minmax(300px, 420px));
+  max-width: 980px;
+  margin: 0 auto;
+  justify-content: center;
+}
 
 /* Cards reservados ("em breve") */
 .project-soon { cursor: default; background: transparent; border: 1.5px dashed var(--lines); box-shadow: none; }
@@ -752,8 +757,9 @@ section { padding: var(--space-section) 0; }
 .project-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
+  background: #0d1117;
   transition: transform 0.6s ease;
 }
 .project-card:hover .project-img img { transform: scale(1.06); }

@@ -76,23 +76,48 @@ const { brand, footer } = content;
 
   updateFooterLogo();
 
+  const GOOGLE_SHEET_APP_URL = 'https://script.google.com/macros/s/AKfycbwr6LYTFL1SFQg5eAa0JeFh4IHxJPlivgo2woD3nBfc8v0cOF1T3h9QsOQj6migl-S9/exec';
+
   const budgetForm = document.getElementById('budgetForm');
-  budgetForm?.addEventListener('submit', (event) => {
+  budgetForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const form = event.currentTarget as HTMLFormElement;
     const data = new FormData(form);
-    const nome = (data.get('nome') || '').toString().trim();
-    const telefone = (data.get('telefone') || '').toString().trim();
-    const email = (data.get('email') || '').toString().trim();
-    const assunto = (data.get('assunto') || '').toString().trim();
+    const payload = {
+      nome: (data.get('nome') || '').toString().trim(),
+      telefone: (data.get('telefone') || '').toString().trim(),
+      email: (data.get('email') || '').toString().trim(),
+      assunto: (data.get('assunto') || '').toString().trim(),
+    };
 
-    const subject = encodeURIComponent(`Solicitação de orçamento — ${assunto || 'Automação'}`);
-    const body = encodeURIComponent(
-      `Nome: ${nome}\nTelefone: ${telefone}\nE-mail: ${email}\nAssunto: ${assunto}\n\nOlá, gostaria de solicitar um orçamento.`
-    );
+    const hasRequiredFields = payload.nome && payload.telefone && payload.email && payload.assunto;
+    if (!hasRequiredFields) {
+      return;
+    }
 
-    window.location.href = `mailto:neeko.automacoes@gmail.com?subject=${subject}&body=${body}`;
-    form.reset();
+    try {
+      const response = await fetch(GOOGLE_SHEET_APP_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao enviar para o Google Sheets');
+      }
+
+      alert('Seu orçamento foi enviado com sucesso!');
+      form.reset();
+      return;
+    } catch (error) {
+      const subject = encodeURIComponent(`Solicitação de orçamento — ${payload.assunto || 'Automação'}`);
+      const body = encodeURIComponent(
+        `Nome: ${payload.nome}\nTelefone: ${payload.telefone}\nE-mail: ${payload.email}\nAssunto: ${payload.assunto}\n\nOlá, gostaria de solicitar um orçamento.`
+      );
+
+      window.location.href = `mailto:neeko.automacoes@gmail.com?subject=${subject}&body=${body}`;
+      form.reset();
+    }
   });
 
   // Observe theme changes

@@ -154,14 +154,9 @@ export const content = {
         img: "/assets/projetos/facilitar.png",
       },
       {
-        category: "Automação",
-        title: "Automação Fiscal",
-        img: "/assets/images/portfolio/01 · Automação Fiscal@2x.png",
-      },
-      {
-        category: "Processos",
-        title: "Automação de Processos",
-        img: "/assets/images/portfolio/02 · Automação de Processos@2x.png",
+        category: "Projetos",
+        title: "CRC",
+        img: "/assets/projetos/crcset2026.png",
       },
     ],
   },
