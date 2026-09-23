@@ -281,11 +281,14 @@ section { padding: var(--space-section) 0; }
   border-radius: 16px;
   padding: 24px;
   box-shadow: var(--shadow-card);
-  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-  transition: transform var(--trans-fast);
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast), border-color var(--trans-fast);
 }
 [data-theme="light"] .mockup-glass { background: rgba(240, 244, 255, 0.8); }
-.mockup-glass:hover { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+.mockup-glass:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 230, 118, 0.35);
+}
 
 .mockup-header { display: flex; gap: 8px; align-items: center; margin-bottom: 24px; }
 .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
@@ -320,13 +323,18 @@ section { padding: var(--space-section) 0; }
   cursor: pointer;
   opacity: 0;
   transform: scale(0.97);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
   pointer-events: none;
 }
 .hero-slide.active {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+}
+.hero-slide:hover {
+  transform: scale(1.01);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
 }
 /* Fundo desfocado (mesma imagem) para preencher as laterais sem barras vazias */
 .hero-slide::before {
