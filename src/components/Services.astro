@@ -5,8 +5,8 @@ const { services } = content;
 
 <section id="servicos" class="services">
   <div class="container">
-    <h2 class="section-title fade-up">{services.sectionTitle}</h2>
-    <p class="services-intro fade-up">{services.intro}</p>
+    {services.sectionTitle && <h2 class="section-title fade-up">{services.sectionTitle}</h2>}
+    {services.intro && <p class="services-intro fade-up">{services.intro}</p>}
     <div class="grid services-grid">
       {services.items.map((service, i) => (
         <div class={`card service-card fade-up delay-${(i % 3) + 1}`}>

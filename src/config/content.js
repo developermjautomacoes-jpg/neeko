@@ -20,11 +20,11 @@ export const content = {
   ],
 
   hero: {
-    title: "Sua operação, em modo",
-    titleHighlight: "automático",
-    titleEnd: "e com mais velocidade",
+    title: "A Neeko transforma processos manuais em soluções digitais",
+    titleHighlight: "",
+    titleEnd: "",
     subtitle:
-      "Conectamos processos, sistemas, IA e sites para eliminar retrabalho, reduzir erros e dar à sua equipe mais tempo para crescer e vender melhor.",
+      "Utilizando automação, integração, dados e inteligência artificial para tornar as rotinas das empresas mais rápidas, organizadas e eficientes.",
     cta1: { label: "Falar com especialista", href: "#contato" },
     cta2: { label: "Ver serviços", href: "#servicos" },
     // Slides do carrossel: cada um mostra um modelo "Neeko Modelo" dentro da moldura do navegador.
@@ -53,9 +53,9 @@ export const content = {
   },
 
   services: {
-    sectionTitle: "O que fazemos",
+    sectionTitle: "",
     intro:
-      "A Neeko transforma processos manuais em soluções digitais, utilizando automação, integração, dados e inteligência artificial para tornar as rotinas das empresas mais rápidas, organizadas e eficientes.",
+      "",
     items: [
       {
         icon: "file-text",
