@@ -56,7 +56,6 @@ const { hero } = content;
           </div>
         </div>
       </div>
-      <p class="hero-visual-hint">Clique em um modelo para ver a página completa ↗</p>
     </div>
 
   </div>
@@ -92,15 +91,6 @@ const { hero } = content;
     };
 
     dots.forEach((d, i) => d.addEventListener('click', () => { show(i); start(); }));
-
-    // Abrir lightbox ao clicar no slide (usa o lightbox global do index)
-    slides.forEach((s) => {
-      s.addEventListener('click', () => {
-        const src = s.getAttribute('data-lightbox');
-        const title = s.getAttribute('data-title') || '';
-        if (src && (window as any).openLightbox) (window as any).openLightbox(src, title);
-      });
-    });
 
     const glass = carousel.closest('.mockup-glass');
     glass?.addEventListener('mouseenter', stop);
