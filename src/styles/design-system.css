@@ -246,75 +246,36 @@ section { padding: var(--space-section) 0; }
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
+  grid-template-columns: 1fr;
   gap: 26px;
   align-items: center;
+  justify-items: center;
+  text-align: center;
 }
 
-.hero-buttons { display: flex; gap: 20px; margin-top: 40px; }
-
-/* Mockup Glassmorphism */
-.hero-visual {
+.hero-content {
+  width: min(100%, 820px);
   display: flex;
   flex-direction: column;
-  gap: 18px;
   align-items: center;
+  text-align: center;
+}
+
+.hero h1,
+.hero p {
+  text-align: center;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
   justify-content: center;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  background: #000000;
+  flex-wrap: wrap;
 }
 
-.hero-video-shell {
-  position: relative;
-  width: 100%;
-  max-width: none;
-  aspect-ratio: 16 / 9;
-  border: none;
-  border-radius: 0;
-  overflow: hidden;
-  background: #000000;
-  box-shadow: none;
-  padding: 0;
-  cursor: pointer;
-  transition: transform var(--trans-fast), filter var(--trans-fast), box-shadow var(--trans-fast);
-  isolation: isolate;
-}
-
-.hero-video-shell:hover {
-  transform: translateY(-2px) scale(1.01);
-  filter: brightness(1.03);
-}
-
-.hero-video-shell:active,
-.hero-video-shell.is-pressed {
-  transform: scale(0.985);
-}
-
-.hero-video {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  transform: scale(1);
-  filter: saturate(1.1) contrast(1.06);
-  border-radius: 0;
-  background: #000000;
-}
-
-@media (max-width: 980px) {
-  .hero-video-shell {
-    width: 100%;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-video-shell {
-    aspect-ratio: 4 / 3;
-  }
+.hero-visual {
+  display: none;
 }
 
 /* --- Lightbox (página completa do modelo, rolável) --- */
