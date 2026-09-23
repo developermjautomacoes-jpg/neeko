@@ -15,20 +15,46 @@ const heroServiceLinks = services.items.map((service) => {
 ---
 
 <section class="hero">
-  <div class="container hero-container">
+  <div class="container hero-shell">
+    <div class="container hero-container">
 
-    <div class="hero-content fade-up">
-      <h1>
-        {hero.title} <span class="text-gradient">{hero.titleHighlight}</span> {hero.titleEnd}
-      </h1>
-      <p>{hero.subtitle}</p>
-      <div class="hero-buttons">
-        <a href={hero.cta1.href} class="btn btn-primary">{hero.cta1.label}</a>
-        <a href={hero.cta2.href} class="btn btn-secondary">{hero.cta2.label}</a>
+      <div class="hero-content fade-up">
+        <h1>
+          {hero.title} <span class="text-gradient">{hero.titleHighlight}</span> {hero.titleEnd}
+        </h1>
+        <p>{hero.subtitle}</p>
+        <div class="hero-buttons">
+          <a href={hero.cta1.href} class="btn btn-primary">{hero.cta1.label}</a>
+          <a href={hero.cta2.href} class="btn btn-secondary">{hero.cta2.label}</a>
+        </div>
       </div>
+
+      <div class="hero-visual fade-up delay-1" aria-hidden="true">
+        <div class="hero-visual-panel">
+          <div class="hero-panel-header">
+            <span class="hero-panel-dot"></span>
+            <span class="hero-panel-dot"></span>
+            <span class="hero-panel-dot"></span>
+          </div>
+
+          <div class="hero-panel-content">
+            <div class="hero-panel-side">
+              <span class="hero-panel-tag">Fluxo</span>
+              <div class="hero-panel-line short"></div>
+              <div class="hero-panel-line"></div>
+              <div class="hero-panel-line medium"></div>
+            </div>
+
+            <div class="hero-panel-main">
+              <div class="hero-panel-card hero-panel-card--small"></div>
+              <div class="hero-panel-card hero-panel-card--medium"></div>
+              <div class="hero-panel-card hero-panel-card--large"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-
   </div>
 </section>
 
