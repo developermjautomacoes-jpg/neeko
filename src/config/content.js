@@ -147,12 +147,22 @@ export const content = {
 
   portfolio: {
     sectionTitle: "Projetos em Destaque",
-    // Cards reservados ("em breve"). Ao publicar um projeto real, troque por:
-    // { category: "Categoria", title: "Nome do projeto", img: "/assets/images/portfolio/arquivo.jpg" }
     items: [
-      { soon: true, category: "Em breve", title: "Novo projeto" },
-      { soon: true, category: "Em breve", title: "Novo projeto" },
-      { soon: true, category: "Em breve", title: "Novo projeto" },
+      {
+        category: "Projetos",
+        title: "Facilitar",
+        img: "/assets/projetos/facilitar.png",
+      },
+      {
+        category: "Automação",
+        title: "Automação Fiscal",
+        img: "/assets/images/portfolio/01 · Automação Fiscal@2x.png",
+      },
+      {
+        category: "Processos",
+        title: "Automação de Processos",
+        img: "/assets/images/portfolio/02 · Automação de Processos@2x.png",
+      },
     ],
   },
 
@@ -173,12 +183,12 @@ export const content = {
   },
 
   process: {
-    sectionTitle: "Nosso Processo",
+    sectionTitle: "Veja como funciona o nosso processo",
     steps: [
-      "Entendimento",
-      "Planejamento",
-      "Desenvolvimento",
-      "Entrega",
+      "Briefing",
+      "Protótipo",
+      "Construção",
+      "Publicação",
       "Suporte",
     ],
   },
