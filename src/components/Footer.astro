@@ -110,13 +110,8 @@ const { brand, footer } = content;
       form.reset();
       return;
     } catch (error) {
-      const subject = encodeURIComponent(`Solicitação de orçamento — ${payload.assunto || 'Automação'}`);
-      const body = encodeURIComponent(
-        `Nome: ${payload.nome}\nTelefone: ${payload.telefone}\nE-mail: ${payload.email}\nAssunto: ${payload.assunto}\n\nOlá, gostaria de solicitar um orçamento.`
-      );
-
-      window.location.href = `mailto:neeko.automacoes@gmail.com?subject=${subject}&body=${body}`;
-      form.reset();
+      console.error('Erro ao enviar formulário:', error);
+      alert('Não foi possível enviar para a planilha no momento. Verifique a URL do Apps Script.');
     }
   });
 
